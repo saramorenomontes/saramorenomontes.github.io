@@ -1,10 +1,1408 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <title>Sara Moreno</title>
-</head>
-<body>
-  <h1>Hola</h1>
-  <p>Sara.</p>
-</body>
+<!doctype html>
+<html lang="en" data-theme="light">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sara Moreno Montes</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
+    <style>
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      /* ── THEME TOKENS ── */
+      :root {
+        --bg: #f4f8ff;
+        --wave: #f4f8ff;
+        --card: #ffffff;
+        --card-bdr: #d8e8fb;
+        --card-sh: 0 2px 12px rgba(21, 101, 192, 0.07);
+        --card-shh: 0 6px 28px rgba(21, 101, 192, 0.13);
+        --t1: #0d2644;
+        --t2: #2c5282;
+        --t3: #5a80ab;
+        --accent: #1565c0;
+        --heading: #1565c0;
+        --surf: #ddeeff;
+        --surf-bdr: #a8ccf0;
+        --surf-txt: #0d47a1;
+        --bdg-bg: #ddeeff;
+        --bdg-bdr: #a8ccf0;
+        --bdg-txt: #0d47a1;
+        --pub-bar: #f59e0b;
+        --pub-lbl: #1565c0;
+        --author: #1565c0;
+        --acro: #1565c0;
+        --h-a: #0c3b70;
+        --h-b: #1565c0;
+        --h-c: #42a5f5;
+      }
+
+      [data-theme="grey"] {
+        --bg: #e8ecef;
+        --wave: #e8ecef;
+        --card: #f5f7f8;
+        --card-bdr: #c8d0d6;
+        --card-sh: 0 2px 12px rgba(38, 50, 56, 0.08);
+        --card-shh: 0 6px 28px rgba(38, 50, 56, 0.14);
+        --t1: #0d1f2d;
+        --t2: #37474f;
+        --t3: #78909c;
+        --accent: #00838f;
+        --heading: #263238;
+        --surf: #dde8ec;
+        --surf-bdr: #b0c4cc;
+        --surf-txt: #263238;
+        --bdg-bg: #d8f0f2;
+        --bdg-bdr: #80cbc4;
+        --bdg-txt: #00575e;
+        --pub-bar: #00838f;
+        --pub-lbl: #00838f;
+        --author: #005f68;
+        --acro: #00838f;
+        --h-a: #1a2b38;
+        --h-b: #2c3e4f;
+        --h-c: #4a6070;
+      }
+
+      [data-theme="dark"] {
+        --bg: #0b1623;
+        --wave: #0b1623;
+        --card: #132030;
+        --card-bdr: #1c3248;
+        --card-sh: 0 2px 14px rgba(0, 0, 0, 0.35);
+        --card-shh: 0 6px 30px rgba(0, 0, 0, 0.5);
+        --t1: #c8d8e8;
+        --t2: #7a9fc0;
+        --t3: #4a7090;
+        --accent: #38bdf8;
+        --heading: #38bdf8;
+        --surf: #1c3248;
+        --surf-bdr: #264560;
+        --surf-txt: #7ec8e3;
+        --bdg-bg: #18304a;
+        --bdg-bdr: #264560;
+        --bdg-txt: #7ec8e3;
+        --pub-bar: #38bdf8;
+        --pub-lbl: #38bdf8;
+        --author: #38bdf8;
+        --acro: #38bdf8;
+        --h-a: #020a14;
+        --h-b: #0b1623;
+        --h-c: #152436;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        font-family: "Outfit", sans-serif;
+        background: var(--bg);
+        color: var(--t1);
+        min-height: 100vh;
+        transition:
+          background 0.45s,
+          color 0.45s;
+      }
+
+      /* ── THEME BUTTON ── */
+      .theme-btn {
+        position: fixed;
+        top: 18px;
+        right: 18px;
+        background: rgba(255, 255, 255, 0.15);
+        border: 1px solid rgba(255, 255, 255, 0.3);
+        backdrop-filter: blur(14px);
+        -webkit-backdrop-filter: blur(14px);
+        color: #fff;
+        width: 46px;
+        height: 46px;
+        padding: 0;
+        border-radius: 50px;
+        font-size: 1.05rem;
+        font-weight: 600;
+        cursor: pointer;
+        z-index: 1000;
+        font-family: "Outfit", sans-serif;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 7px;
+        letter-spacing: 0.02em;
+        transition:
+          background 0.2s,
+          transform 0.15s;
+        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+      }
+      .theme-btn:hover {
+        background: rgba(255, 255, 255, 0.25);
+        transform: scale(1.05);
+      }
+
+      /* ── HERO ── */
+      .hero {
+        background: linear-gradient(
+          145deg,
+          var(--h-a) 0%,
+          var(--h-b) 55%,
+          var(--h-c) 100%
+        );
+        padding: 60px 20px 80px;
+        text-align: center;
+        position: relative;
+        overflow: hidden;
+        transition: background 0.45s;
+      }
+      .hero::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100%25' height='100%25'%3E%3Cellipse cx='20%25' cy='30%25' rx='40%25' ry='30%25' fill='rgba(255,255,255,0.03)'/%3E%3Cellipse cx='80%25' cy='70%25' rx='35%25' ry='25%25' fill='rgba(255,255,255,0.03)'/%3E%3C/svg%3E");
+        z-index: 1;
+        pointer-events: none;
+      }
+      .hero-inner {
+        position: relative;
+        z-index: 2;
+      }
+
+      /* ── PROFILE + WEATHER SCENE ── */
+      .profile-wrap {
+        position: relative;
+        display: inline-block;
+        margin: 0 auto 22px;
+      }
+
+      .weather-scene {
+        position: absolute;
+        inset: 0;
+        z-index: 0;
+        pointer-events: none;
+        overflow: hidden;
+        transition: background 0.45s;
+      }
+
+      .weather-scene > span {
+        position: absolute;
+        display: block;
+        z-index: 2;
+      }
+
+      [data-theme="light"] .weather-scene {
+        background: linear-gradient(
+          180deg,
+          rgba(104, 188, 255, 0.95) 0%,
+          rgba(178, 224, 255, 0.92) 55%,
+          rgba(255, 224, 151, 0.9) 100%
+        );
+      }
+      [data-theme="light"] .weather-scene::before {
+        content: "";
+        position: absolute;
+        inset: auto -8% -34% -8%;
+        height: 48%;
+        background:
+          radial-gradient(
+            ellipse at 20% 85%,
+            rgba(78, 176, 117, 0.42) 0 36%,
+            transparent 37%
+          ),
+          radial-gradient(
+            ellipse at 72% 80%,
+            rgba(112, 195, 126, 0.36) 0 34%,
+            transparent 35%
+          );
+      }
+
+      .sun {
+        width: 74px;
+        height: 74px;
+        top: 32px;
+        left: max(38px, calc(50% - 430px));
+        border-radius: 50%;
+        background: #ffd95a;
+        box-shadow:
+          0 0 0 14px rgba(255, 217, 90, 0.2),
+          0 0 42px rgba(255, 180, 50, 0.58);
+        animation: sunGlow 3.8s ease-in-out infinite alternate;
+      }
+      @keyframes sunGlow {
+        from {
+          transform: scale(0.96);
+          box-shadow:
+            0 0 0 12px rgba(255, 217, 90, 0.18),
+            0 0 34px rgba(255, 180, 50, 0.45);
+        }
+        to {
+          transform: scale(1.04);
+          box-shadow:
+            0 0 0 18px rgba(255, 217, 90, 0.24),
+            0 0 52px rgba(255, 180, 50, 0.64);
+        }
+      }
+
+      .bird {
+        width: 28px;
+        height: 14px;
+        opacity: 0.82;
+        animation: birdDrift 7s ease-in-out infinite;
+      }
+      .bird::before,
+      .bird::after {
+        content: "";
+        position: absolute;
+        top: 5px;
+        width: 15px;
+        height: 9px;
+        border-top: 2px solid rgba(41, 82, 105, 0.78);
+        border-radius: 50% 50% 0 0;
+      }
+      .bird::before {
+        left: 0;
+        transform: rotate(18deg);
+      }
+      .bird::after {
+        right: 0;
+        transform: rotate(-18deg);
+      }
+      .bird-1 {
+        top: 58px;
+        right: max(80px, calc(50% - 410px));
+      }
+      .bird-2 {
+        top: 104px;
+        right: max(36px, calc(50% - 510px));
+        transform: scale(0.72);
+        animation-delay: -2s;
+      }
+      .bird-3 {
+        top: 132px;
+        left: max(110px, calc(50% - 230px));
+        transform: scale(0.62);
+        animation-delay: -4s;
+      }
+      @keyframes birdDrift {
+        0%,
+        100% {
+          translate: 0 0;
+        }
+        50% {
+          translate: 18px -6px;
+        }
+      }
+
+      [data-theme="grey"] .weather-scene {
+        background: linear-gradient(
+          135deg,
+          rgba(126, 144, 160, 0.95) 0%,
+          rgba(187, 204, 212, 0.9) 54%,
+          rgba(224, 234, 234, 0.88) 100%
+        );
+      }
+      [data-theme="grey"] .weather-scene::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background:
+          radial-gradient(
+            ellipse at 18% 82%,
+            rgba(255, 255, 255, 0.22) 0 28%,
+            transparent 29%
+          ),
+          radial-gradient(
+            ellipse at 80% 20%,
+            rgba(255, 255, 255, 0.18) 0 24%,
+            transparent 25%
+          );
+      }
+      .wind-line {
+        height: 3px;
+        border-radius: 999px;
+        background: linear-gradient(
+          90deg,
+          transparent,
+          rgba(255, 255, 255, 0.86),
+          transparent
+        );
+        filter: drop-shadow(0 0 6px rgba(255, 255, 255, 0.28));
+        animation: windBlow 1.65s linear infinite;
+      }
+      .wind-line-1 {
+        width: 26vw;
+        min-width: 190px;
+        top: 54px;
+        left: -28vw;
+        animation-delay: -0.2s;
+      }
+      .wind-line-2 {
+        width: 34vw;
+        min-width: 250px;
+        top: 118px;
+        left: -36vw;
+        animation-delay: -0.8s;
+      }
+      .wind-line-3 {
+        width: 30vw;
+        min-width: 210px;
+        top: 192px;
+        left: -32vw;
+        animation-delay: -1.2s;
+      }
+      .wind-line-4 {
+        width: 22vw;
+        min-width: 150px;
+        top: 258px;
+        left: -24vw;
+        animation-delay: -0.45s;
+      }
+      @keyframes windBlow {
+        from {
+          transform: translateX(0) skewX(-16deg);
+          opacity: 0;
+        }
+        12%,
+        82% {
+          opacity: 1;
+        }
+        to {
+          transform: translateX(145vw) skewX(-16deg);
+          opacity: 0;
+        }
+      }
+
+      [data-theme="dark"] .weather-scene {
+        background: linear-gradient(
+          180deg,
+          rgba(40, 62, 82, 0.98) 0%,
+          rgba(70, 92, 111, 0.96) 54%,
+          rgba(97, 119, 132, 0.92) 100%
+        );
+      }
+      [data-theme="dark"] .weather-scene::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background:
+          radial-gradient(
+            ellipse at 18% 92%,
+            rgba(19, 34, 48, 0.26) 0 28%,
+            transparent 29%
+          ),
+          radial-gradient(
+            ellipse at 82% 14%,
+            rgba(255, 255, 255, 0.08) 0 22%,
+            transparent 23%
+          );
+      }
+      [data-theme="dark"] .weather-scene::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(
+          180deg,
+          rgba(9, 20, 34, 0.18),
+          transparent 58%,
+          rgba(9, 20, 34, 0.16)
+        );
+      }
+
+      .cloud {
+        width: 156px;
+        height: 54px;
+        background: rgba(229, 235, 240, 0.9);
+        border-radius: 999px;
+        box-shadow:
+          20px 12px 0 -5px rgba(199, 211, 221, 0.86),
+          -26px 13px 0 -8px rgba(212, 223, 232, 0.86);
+      }
+      .cloud::before,
+      .cloud::after {
+        content: "";
+        position: absolute;
+        border-radius: 50%;
+        background: inherit;
+      }
+      .cloud::before {
+        width: 66px;
+        height: 66px;
+        left: 25px;
+        top: -31px;
+      }
+      .cloud::after {
+        width: 78px;
+        height: 78px;
+        right: 24px;
+        top: -40px;
+      }
+      .cloud-1 {
+        top: 48px;
+        left: max(42px, calc(50% - 430px));
+        animation: cloudFloat 6s ease-in-out infinite;
+      }
+      .cloud-2 {
+        top: 92px;
+        right: max(26px, calc(50% - 480px));
+        transform: scale(1.05);
+        opacity: 0.82;
+        animation: cloudFloat 7s ease-in-out infinite reverse;
+      }
+      [data-theme="dark"] .cloud {
+        background: rgba(48, 63, 78, 0.96);
+        box-shadow:
+          26px 16px 0 -7px rgba(34, 48, 63, 0.94),
+          -34px 17px 0 -10px rgba(39, 54, 70, 0.94),
+          0 18px 34px rgba(8, 16, 25, 0.22);
+      }
+      [data-theme="dark"] .cloud-1 {
+        transform: scale(1.24);
+      }
+      [data-theme="dark"] .cloud-2 {
+        transform: scale(1.34);
+        opacity: 0.9;
+      }
+      @keyframes cloudFloat {
+        0%,
+        100% {
+          translate: 0 0;
+        }
+        50% {
+          translate: 16px 2px;
+        }
+      }
+
+      .drop {
+        width: 13px;
+        height: 18px;
+        border-radius: 50% 50% 55% 55%;
+        background: linear-gradient(
+          145deg,
+          rgba(216, 237, 255, 0.94),
+          rgba(89, 151, 195, 0.56)
+        );
+        box-shadow:
+          inset -3px -5px 6px rgba(17, 64, 101, 0.22),
+          inset 3px 4px 5px rgba(255, 255, 255, 0.42),
+          0 5px 14px rgba(7, 23, 40, 0.18);
+        opacity: 0.86;
+        transform: rotate(12deg);
+        animation: dropFall 2.8s linear infinite;
+      }
+      .drop::before {
+        content: "";
+        position: absolute;
+        width: 4px;
+        height: 6px;
+        top: 4px;
+        left: 4px;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.68);
+      }
+      .drop-1 {
+        top: 126px;
+        left: max(78px, calc(50% - 360px));
+      }
+      .drop-2 {
+        top: 154px;
+        left: max(28px, calc(50% - 255px));
+        transform: rotate(-8deg) scale(0.82);
+        opacity: 0.72;
+        animation-delay: -1.2s;
+        animation-duration: 3.2s;
+      }
+      .drop-3 {
+        top: 112px;
+        right: max(80px, calc(50% - 350px));
+        transform: rotate(14deg) scale(1.08);
+        animation-delay: -2.1s;
+        animation-duration: 2.6s;
+      }
+      .drop-4 {
+        top: 178px;
+        right: max(38px, calc(50% - 230px));
+        transform: rotate(-12deg) scale(0.74);
+        opacity: 0.68;
+        animation-delay: -0.6s;
+        animation-duration: 3.4s;
+      }
+      .drop-5 {
+        top: 206px;
+        left: 50%;
+        transform: rotate(8deg) scale(0.9);
+        opacity: 0.74;
+        animation-delay: -2.8s;
+        animation-duration: 3s;
+      }
+      @keyframes dropFall {
+        0% {
+          translate: 0 -18px;
+          opacity: 0;
+        }
+        12% {
+          opacity: 0.88;
+        }
+        78% {
+          opacity: 0.88;
+        }
+        100% {
+          translate: 0 92px;
+          opacity: 0;
+        }
+      }
+
+      [data-theme="grey"] .sun,
+      [data-theme="grey"] .bird,
+      [data-theme="grey"] .cloud,
+      [data-theme="grey"] .drop,
+      [data-theme="dark"] .sun,
+      [data-theme="dark"] .bird,
+      [data-theme="dark"] .wind-line,
+      [data-theme="light"] .wind-line,
+      [data-theme="light"] .cloud,
+      [data-theme="light"] .drop {
+        display: none;
+      }
+      .profile-pic {
+        width: 170px;
+        height: 170px;
+        border-radius: 50%;
+        object-fit: cover;
+        border: 4px solid rgba(255, 255, 255, 0.28);
+        box-shadow:
+          0 0 0 10px rgba(255, 255, 255, 0.07),
+          0 20px 50px rgba(0, 0, 0, 0.28);
+        position: relative;
+        z-index: 1;
+        transition:
+          transform 0.3s,
+          box-shadow 0.3s;
+      }
+      .profile-pic:hover {
+        transform: scale(1.04);
+        box-shadow:
+          0 0 0 14px rgba(255, 255, 255, 0.1),
+          0 24px 60px rgba(0, 0, 0, 0.35);
+      }
+
+      .hero h1 {
+        font-size: clamp(2.4rem, 6vw, 3.6rem);
+        color: #fff;
+        letter-spacing: 0.03em;
+        margin-bottom: 10px;
+        text-shadow: 0 2px 20px rgba(0, 0, 0, 0.3);
+      }
+      .hero .subtitle {
+        font-size: 1rem;
+        color: rgba(255, 255, 255, 0.72);
+        font-weight: 400;
+        margin-bottom: 30px;
+        letter-spacing: 0.04em;
+      }
+
+      .social-links {
+        display: flex;
+        gap: 14px;
+        justify-content: center;
+        flex-wrap: wrap;
+      }
+      .social-links a {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 10px 20px;
+        background: rgba(255, 255, 255, 0.12);
+        border: 1px solid rgba(255, 255, 255, 0.25);
+        color: #fff;
+        text-decoration: none;
+        border-radius: 50px;
+        font-size: 0.88rem;
+        font-weight: 500;
+        transition:
+          background 0.2s,
+          transform 0.2s,
+          box-shadow 0.2s;
+        backdrop-filter: blur(8px);
+      }
+      .social-links a:hover {
+        background: rgba(255, 255, 255, 0.22);
+        transform: translateY(-2px);
+        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+      }
+      [data-theme="light"] .hero h1 {
+        color: #14324a;
+        text-shadow: 0 2px 18px rgba(255, 255, 255, 0.42);
+      }
+      [data-theme="light"] .hero .subtitle {
+        color: rgba(20, 50, 74, 0.78);
+        text-shadow: 0 1px 10px rgba(255, 255, 255, 0.34);
+      }
+      [data-theme="light"] .social-links a {
+        background: rgba(255, 255, 255, 0.62);
+        border-color: rgba(20, 50, 74, 0.2);
+        color: #14324a;
+        box-shadow: 0 6px 18px rgba(20, 50, 74, 0.12);
+      }
+      [data-theme="light"] .social-links a:hover {
+        background: rgba(255, 255, 255, 0.78);
+        box-shadow: 0 8px 22px rgba(20, 50, 74, 0.18);
+      }
+
+      /* Wave */
+      .wave {
+        display: block;
+        width: 100%;
+        overflow: hidden;
+        line-height: 0;
+        margin-top: -1px;
+      }
+      .wave svg {
+        display: block;
+      }
+      .wave path {
+        fill: var(--bg);
+        transition: fill 0.45s;
+      }
+
+      /* ── CONTAINER ── */
+      .container {
+        max-width: 1100px;
+        margin: 0 auto;
+        padding: 0 20px 80px;
+      }
+
+      /* ── CARDS ── */
+      .card {
+        background: var(--card);
+        border-radius: 16px;
+        padding: 32px 36px;
+        box-shadow: var(--card-sh);
+        border: 1px solid var(--card-bdr);
+        transition:
+          box-shadow 0.2s,
+          background 0.45s,
+          border-color 0.45s;
+      }
+      .card:hover {
+        box-shadow: var(--card-shh);
+      }
+
+      .card h2 {
+        font-size: 1.4rem;
+        color: var(--heading);
+        margin-bottom: 24px;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        transition: color 0.45s;
+      }
+      .card h2 i {
+        font-size: 1.1rem;
+        color: var(--accent);
+        transition: color 0.45s;
+      }
+
+      .card h3 {
+        font-size: 0.78rem;
+        text-transform: uppercase;
+        letter-spacing: 0.12em;
+        color: var(--t3);
+        margin: 24px 0 14px;
+        font-weight: 600;
+        border-bottom: 1px solid var(--card-bdr);
+        padding-bottom: 6px;
+        transition:
+          color 0.45s,
+          border-color 0.45s;
+      }
+      .card h3:first-of-type {
+        margin-top: 0;
+      }
+
+      /* ── TWO COLUMNS ── */
+      .two-col {
+        display: grid;
+        grid-template-columns: 1fr 2fr;
+        gap: 24px;
+        margin-bottom: 24px;
+      }
+      @media (max-width: 700px) {
+        .two-col {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      /* ── INTEREST TAGS ── */
+      .tags {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
+      }
+      .tag {
+        background: var(--surf);
+        color: var(--surf-txt);
+        border: 1px solid var(--surf-bdr);
+        padding: 16px 10px;
+        border-radius: 12px;
+        font-size: 0.92rem;
+        font-weight: 500;
+        transition:
+          filter 0.15s,
+          transform 0.15s,
+          background 0.45s,
+          color 0.45s,
+          border-color 0.45s;
+        cursor: default;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        gap: 7px;
+        min-height: 80px;
+      }
+      .tag:last-child {
+        grid-column: 1 / -1;
+      }
+      .tag:hover {
+        filter: brightness(0.94);
+        transform: translateY(-2px);
+      }
+      .tag i {
+        margin: 0;
+        font-size: 1.1rem;
+        color: var(--accent);
+        transition: color 0.45s;
+      }
+
+      /* ── TIMELINE ── */
+      .timeline {
+        display: flex;
+        flex-direction: column;
+        gap: 18px;
+      }
+      .tl-item {
+        display: flex;
+        gap: 16px;
+        align-items: flex-start;
+      }
+      .tl-badge {
+        flex-shrink: 0;
+        background: var(--surf);
+        color: var(--surf-txt);
+        font-size: 0.75rem;
+        font-weight: 600;
+        padding: 4px 10px;
+        border-radius: 20px;
+        white-space: nowrap;
+        margin-top: 2px;
+        border: 1px solid var(--surf-bdr);
+        transition:
+          background 0.45s,
+          color 0.45s,
+          border-color 0.45s;
+      }
+      .tl-body strong {
+        display: block;
+        font-size: 0.95rem;
+        color: var(--t1);
+        font-weight: 600;
+        margin-bottom: 2px;
+        transition: color 0.45s;
+      }
+      .tl-body p {
+        font-size: 0.85rem;
+        color: var(--t2);
+        margin-bottom: 2px;
+        transition: color 0.45s;
+      }
+      .tl-body .detail {
+        font-size: 0.82rem;
+        color: var(--t3);
+        font-style: italic;
+        transition: color 0.45s;
+      }
+
+      /* ── PUBLICATIONS ── */
+      .pub-list {
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+      }
+      .pub-item {
+        background: var(--card);
+        border: 1px solid var(--card-bdr);
+        border-left: 4px solid var(--pub-bar);
+        border-radius: 10px;
+        padding: 18px 20px;
+        transition:
+          box-shadow 0.2s,
+          transform 0.2s,
+          background 0.45s,
+          border-color 0.45s;
+      }
+      .pub-item:hover {
+        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+        transform: translateX(3px);
+      }
+      .pub-item a {
+        text-decoration: none;
+        color: inherit;
+        display: block;
+      }
+
+      .pub-label {
+        font-size: 0.7rem;
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+        color: var(--pub-lbl);
+        font-weight: 700;
+        margin-bottom: 6px;
+        transition: color 0.45s;
+      }
+
+      .pub-conference,
+      .pub-journal {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        padding: 4px 12px;
+        border-radius: 50px;
+        font-size: 0.75rem;
+        font-weight: 600;
+        margin-bottom: 9px;
+        letter-spacing: 0.02em;
+      }
+      .pub-conference {
+        background: var(--bdg-bg);
+        color: var(--bdg-txt);
+        border: 1px solid var(--bdg-bdr);
+        transition:
+          background 0.45s,
+          color 0.45s,
+          border-color 0.45s;
+      }
+      .pub-journal {
+        background: #e6f4ec;
+        color: #276740;
+        border: 1px solid #aed6bc;
+      }
+      [data-theme="dark"] .pub-journal {
+        background: #0d2d1a;
+        color: #4ade80;
+        border-color: #15562e;
+      }
+
+      .pub-title {
+        font-size: 0.93rem;
+        font-weight: 600;
+        color: var(--t1);
+        line-height: 1.45;
+        margin-bottom: 7px;
+        transition: color 0.45s;
+      }
+      .pub-item a:hover .pub-title {
+        color: var(--accent);
+      }
+      .pub-authors {
+        font-size: 0.82rem;
+        color: var(--t2);
+        line-height: 1.5;
+        margin-bottom: 5px;
+        transition: color 0.45s;
+      }
+      .author-me {
+        font-weight: 700;
+        color: var(--author);
+        transition: color 0.45s;
+      }
+      .pub-link-icon {
+        float: right;
+        color: var(--t3);
+        font-size: 0.85rem;
+        margin-top: 2px;
+      }
+
+      /* ── PROJECTS ── */
+      .project-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 16px;
+      }
+      @media (max-width: 700px) {
+        .project-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+      .project-item {
+        background: var(--card);
+        border: 1px solid var(--card-bdr);
+        border-radius: 12px;
+        padding: 18px 20px;
+        text-decoration: none;
+        color: inherit;
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+        transition:
+          box-shadow 0.2s,
+          transform 0.2s,
+          border-color 0.2s,
+          background 0.45s;
+      }
+      .project-item:hover {
+        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12);
+        transform: translateY(-3px);
+        border-color: var(--surf-bdr);
+      }
+      .project-acronym {
+        font-size: 1.25rem;
+        font-weight: 700;
+        color: var(--acro);
+        transition: color 0.45s;
+      }
+      .project-label {
+        font-size: 0.78rem;
+        color: var(--t2);
+        line-height: 1.4;
+        transition: color 0.45s;
+      }
+      .project-link {
+        font-size: 0.75rem;
+        color: var(--accent);
+        display: inline-flex;
+        align-items: center;
+        gap: 4px;
+        margin-top: 4px;
+        transition: color 0.45s;
+      }
+
+      /* ── FOOTER ── */
+      footer {
+        text-align: center;
+        padding: 30px 20px;
+        font-size: 0.8rem;
+        color: var(--t3);
+        border-top: 1px solid var(--card-bdr);
+        transition:
+          color 0.45s,
+          border-color 0.45s;
+      }
+      footer a {
+        color: var(--accent);
+        text-decoration: none;
+        transition: color 0.45s;
+      }
+      footer a:hover {
+        text-decoration: underline;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Theme Toggle -->
+    <button class="theme-btn" id="theme-btn" onclick="nextTheme()" aria-label="Change weather theme">
+      <span id="t-icon">☀️</span>
+    </button>
+
+    <!-- ── HERO ── -->
+    <header class="hero">
+      <div class="weather-scene" aria-hidden="true">
+        <span class="sun"></span>
+        <span class="bird bird-1"></span>
+        <span class="bird bird-2"></span>
+        <span class="bird bird-3"></span>
+        <span class="wind-line wind-line-1"></span>
+        <span class="wind-line wind-line-2"></span>
+        <span class="wind-line wind-line-3"></span>
+        <span class="wind-line wind-line-4"></span>
+        <span class="cloud cloud-1"></span>
+        <span class="cloud cloud-2"></span>
+        <span class="drop drop-1"></span>
+        <span class="drop drop-2"></span>
+        <span class="drop drop-3"></span>
+        <span class="drop drop-4"></span>
+        <span class="drop drop-5"></span>
+      </div>
+      <div class="hero-inner">
+        <div class="profile-wrap">
+          <img
+            src="profilepic.png"
+            alt="Sara Moreno Montes"
+            class="profile-pic"
+          />
+        </div>
+        <h1>Sara Moreno Montes</h1>
+        <p class="subtitle">
+          PhD Researcher in Environmental Engineering &nbsp;·&nbsp; UPC &amp;
+          Barcelona Supercomputing Center
+        </p>
+        <nav class="social-links">
+          <a
+            href="https://scholar.google.es/citations?user=AmZjIAEAAAAJ&hl=es&inst=2086209426759054600&oi=ao"
+            target="_blank"
+            rel="noopener"
+          >
+            <i class="fas fa-graduation-cap"></i> Scholar
+          </a>
+          <a href="mailto:sara.moreno.montes5@gmail.com">
+            <i class="fas fa-envelope"></i> Email
+          </a>
+          <a
+            href="https://www.linkedin.com/in/sara-moreno-montes-0960251a3/"
+            target="_blank"
+            rel="noopener"
+          >
+            <i class="fab fa-linkedin"></i> LinkedIn
+          </a>
+        </nav>
+      </div>
+    </header>
+
+    <div class="wave">
+      <svg
+        viewBox="0 0 1440 60"
+        xmlns="http://www.w3.org/2000/svg"
+        preserveAspectRatio="none"
+      >
+        <path d="M0,30 C360,70 1080,-10 1440,30 L1440,60 L0,60 Z" />
+      </svg>
+    </div>
+
+    <main class="container">
+      <div class="two-col">
+        <section class="card">
+          <h2><i class="fas fa-atom"></i> Research Interests</h2>
+          <div class="tags">
+            <span class="tag"
+              ><i class="fas fa-cloud-sun-rain"></i>Meteorology</span
+            >
+            <span class="tag"
+              ><i class="fas fa-globe-europe"></i>Climate Services</span
+            >
+            <span class="tag"
+              ><i class="fas fa-layer-group"></i>Multi-model Predictions</span
+            >
+            <span class="tag"><i class="fas fa-bolt"></i>Energy Sector</span>
+            <span class="tag"
+              ><i class="fas fa-calendar-alt"></i>Decadal Forecasting</span
+            >
+          </div>
+        </section>
+
+        <section class="card">
+          <h2><i class="fas fa-road"></i> Background &amp; Experience</h2>
+
+          <h3>Research Experience</h3>
+          <div class="timeline">
+            <div class="tl-item">
+              <span class="tl-badge">2024 – Present</span>
+              <div class="tl-body">
+                <strong>PhD Student in Environmental Engineering</strong>
+                <p>
+                  Universitat Politècnica de Catalunya (UPC) &amp; Barcelona
+                  Supercomputing Center (BSC)
+                </p>
+                <p class="detail">
+                  Decadal predictions for the renewable energy sector
+                </p>
+              </div>
+            </div>
+            <div class="tl-item">
+              <span class="tl-badge">2023</span>
+              <div class="tl-body">
+                <strong>Final Master's Project</strong>
+                <p>Barcelona Supercomputing Center (BSC)</p>
+              </div>
+            </div>
+          </div>
+
+          <h3>Academic Background</h3>
+          <div class="timeline">
+            <div class="tl-item">
+              <span class="tl-badge">2022 – 2023</span>
+              <div class="tl-body">
+                <strong>MSc in Meteorology and Climate Sciences</strong>
+                <p>Universitat de Barcelona</p>
+              </div>
+            </div>
+            <div class="tl-item">
+              <span class="tl-badge">2015 – 2020</span>
+              <div class="tl-body">
+                <strong>BSc in Physics</strong>
+                <p>Universitat de Barcelona</p>
+              </div>
+            </div>
+          </div>
+
+          <h3>Professional Experience</h3>
+          <div class="timeline">
+            <div class="tl-item">
+              <span class="tl-badge">2020 – 2022</span>
+              <div class="tl-body">
+                <strong>SAP Business Application Consultant</strong>
+                <p>Ernst &amp; Young (EY)</p>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+
+      <section class="card" style="margin-bottom: 24px">
+        <h2><i class="fas fa-project-diagram"></i> Projects</h2>
+        <div class="project-grid">
+          <a
+            class="project-item"
+            href="https://www.aspect-project.eu/"
+            target="_blank"
+            rel="noopener"
+          >
+            <span class="project-acronym">ASPECT</span>
+            <span class="project-label"
+              >Atlantic climate predictions for societal and environmental
+              benefit</span
+            >
+            <span class="project-link"
+              ><i class="fas fa-external-link-alt"></i> aspect-project.eu</span
+            >
+          </a>
+          <a
+            class="project-item"
+            href="https://www.bsc.es/research-and-development/projects/boreas-blending-knowledge-climate-predictions-and-projections-make"
+            target="_blank"
+            rel="noopener"
+          >
+            <span class="project-acronym">BOREAS</span>
+            <span class="project-label"
+              >Blending knowledge from climate predictions and projections to
+              make actionable climate services</span
+            >
+            <span class="project-link"
+              ><i class="fas fa-external-link-alt"></i> bsc.es / BOREAS</span
+            >
+          </a>
+          <a
+            class="project-item"
+            href="https://arctic-iceberg.eu/"
+            target="_blank"
+            rel="noopener"
+          >
+            <span class="project-acronym">ICEBERG</span>
+            <span class="project-label"
+              >Improving climate predictions and projections for the Arctic
+              region</span
+            >
+            <span class="project-link"
+              ><i class="fas fa-external-link-alt"></i> arctic-iceberg.eu</span
+            >
+          </a>
+        </div>
+      </section>
+
+      <section class="card">
+        <h2><i class="fas fa-scroll"></i> Publications &amp; Contributions</h2>
+
+        <h3>First Author Papers</h3>
+        <div class="pub-list">
+          <div class="pub-item">
+            <a
+              href="https://www.sciencedirect.com/science/article/pii/S2405880726000075"
+              target="_blank"
+              rel="noopener"
+            >
+              <i class="fas fa-external-link-alt pub-link-icon"></i>
+              <div class="pub-label">Journal Article · 2026</div>
+              <div class="pub-journal">
+                <i class="fas fa-book-open"></i> Climate Services · Elsevier
+              </div>
+              <div class="pub-title">
+                Comparative analysis of statistical downscaling methods for
+                multi-model decadal climate predictions over Western Europe
+              </div>
+              <div class="pub-authors">
+                <span class="author-me">Sara Moreno-Montes</span>, Carlos
+                Delgado-Torres, Eren Duzenli, Núria Pérez-Zanón, Raül
+                Marcos-Matamoros, Albert Soret
+              </div>
+            </a>
+          </div>
+          <div class="pub-item">
+            <a
+              href="https://egusphere.copernicus.org/preprints/2026/egusphere-2026-1205/egusphere-2026-1205.pdf"
+              target="_blank"
+              rel="noopener"
+            >
+              <i class="fas fa-external-link-alt pub-link-icon"></i>
+              <div class="pub-label">Preprint · 2026</div>
+              <div class="pub-journal">
+                <i class="fas fa-book-open"></i> EGUSphere · Copernicus
+                Publications
+              </div>
+              <div class="pub-title">
+                Decadal predictions of wind, solar and compound power indicators
+                to support the European renewable energy sector
+              </div>
+              <div class="pub-authors">
+                <span class="author-me">Sara Moreno-Montes</span>, Carlos
+                Delgado-Torres, Matías Olmo, Sushovan Ghosh, Verónica Torralba,
+                Albert Soret
+              </div>
+            </a>
+          </div>
+        </div>
+
+        <h3>Conferences &amp; Congress Contributions</h3>
+        <div class="pub-list">
+          <div class="pub-item">
+            <a
+              href="https://meetingorganizer.copernicus.org/EMS2025/EMS2025-395.html"
+              target="_blank"
+              rel="noopener"
+            >
+              <i class="fas fa-external-link-alt pub-link-icon"></i>
+              <div class="pub-label">Abstract · 2025</div>
+              <div class="pub-conference">
+                <i class="fas fa-map-marker-alt"></i> European Meteorological
+                Society Annual Meeting · EMS2025-395
+              </div>
+              <div class="pub-title">
+                Decadal predictions of wind and solar power indicators to
+                support the renewable energy sector
+              </div>
+              <div class="pub-authors">
+                <span class="author-me">Sara Moreno-Montes</span>, Carlos
+                Delgado-Torres, Verónica Torralba, Matias Olmo, Albert Soret
+              </div>
+            </a>
+          </div>
+          <div class="pub-item">
+            <a
+              href="https://meetingorganizer.copernicus.org/EMS2025/EMS2025-393.html"
+              target="_blank"
+              rel="noopener"
+            >
+              <i class="fas fa-external-link-alt pub-link-icon"></i>
+              <div class="pub-label">Abstract · 2025</div>
+              <div class="pub-conference">
+                <i class="fas fa-map-marker-alt"></i> European Meteorological
+                Society Annual Meeting · EMS2025-393
+              </div>
+              <div class="pub-title">
+                Seamless climate information for enhancing energy system
+                resilience in Spain
+              </div>
+              <div class="pub-authors">
+                Verónica Torralba, Albert Soret, Victòria Agudetse-Roures,
+                Eulalia Baulenas, Dragana Bojovic, Carlos Delgado-Torres,
+                <span class="author-me">Sara Moreno-Montes</span>, Sara
+                Octenjak, Matias Olmo, Núria Pérez-Zanón, Sheetal Saklani,
+                Paloma Trascasa-Castro
+              </div>
+            </a>
+          </div>
+          <div class="pub-item">
+            <a
+              href="https://meetingorganizer.copernicus.org/EMS2025/EMS2025-240.html"
+              target="_blank"
+              rel="noopener"
+            >
+              <i class="fas fa-external-link-alt pub-link-icon"></i>
+              <div class="pub-label">Abstract · 2025</div>
+              <div class="pub-conference">
+                <i class="fas fa-map-marker-alt"></i> European Meteorological
+                Society Annual Meeting · EMS2025-240
+              </div>
+              <div class="pub-title">
+                Wind energy future projections over Western Europe: results from
+                the BOREAS project
+              </div>
+              <div class="pub-authors">
+                Matias Olmo, <span class="author-me">Sara Moreno-Montes</span>,
+                Paloma Trascasa-Castro, Carlos Delgado-Torres, Núria
+                Pérez-Zanón, Verónica Torralba, Albert Soret
+              </div>
+            </a>
+          </div>
+          <div class="pub-item">
+            <a
+              href="https://meetingorganizer.copernicus.org/EMS2024/EMS2024-434.html"
+              target="_blank"
+              rel="noopener"
+            >
+              <i class="fas fa-external-link-alt pub-link-icon"></i>
+              <div class="pub-label">Abstract · 2024</div>
+              <div class="pub-conference">
+                <i class="fas fa-map-marker-alt"></i> European Meteorological
+                Society Annual Meeting · EMS2024-434
+              </div>
+              <div class="pub-title">
+                A Comparative Analysis of Downscaled Multi-model Decadal Climate
+                Predictions over the Iberian Peninsula
+              </div>
+              <div class="pub-authors">
+                <span class="author-me">Sara Moreno-Montes</span>, Carlos
+                Delgado-Torres, Eren Duzenli, Núria Pérez-Zanón, Raül
+                Marcos-Matamoros, Albert Soret
+              </div>
+            </a>
+          </div>
+          <div class="pub-item">
+            <a
+              href="https://ui.adsabs.harvard.edu/abs/2024EGUGA..2619420D/abstract"
+              target="_blank"
+              rel="noopener"
+            >
+              <i class="fas fa-external-link-alt pub-link-icon"></i>
+              <div class="pub-label">Abstract · 2024</div>
+              <div class="pub-conference">
+                <i class="fas fa-map-marker-alt"></i> EGU General Assembly 2024
+                · Vienna
+              </div>
+              <div class="pub-title">
+                Climate Services Downscale (CSDownscale): A statistical
+                downscaling tool for (sub)seasonal to decadal climate
+                predictions
+              </div>
+              <div class="pub-authors">
+                E. Duzenli, J.R. Gamon, A. Llabrés, V. Torralba, L.
+                Palma-García, <span class="author-me">Sara Moreno-Montes</span>,
+                et al.
+              </div>
+            </a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <p>
+        Sara Moreno Montes &nbsp;·&nbsp; UPC &amp; Barcelona Supercomputing
+        Center &nbsp;·&nbsp;
+        <a href="mailto:sara.moreno.montes5@gmail.com"
+          >sara.moreno.montes5@gmail.com</a
+        >
+      </p>
+    </footer>
+
+    <script>
+      const themes = ["light", "grey", "dark"];
+      const icons = ["☀️", "🌬️", "🌧️"];
+      let idx = 0;
+      function nextTheme() {
+        idx = (idx + 1) % 3;
+        document.documentElement.dataset.theme = themes[idx];
+        document.getElementById("t-icon").textContent = icons[idx];
+      }
+    </script>
+  </body>
 </html>
