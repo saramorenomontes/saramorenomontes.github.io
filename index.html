@@ -334,11 +334,13 @@
         background: linear-gradient(
           90deg,
           transparent,
-          rgba(255, 255, 255, 0.86),
+          rgba(255, 255, 255, 0.22) 12%,
+          rgba(255, 255, 255, 0.82) 46%,
+          rgba(255, 255, 255, 0.5) 68%,
           transparent
         );
-        filter: drop-shadow(0 0 6px rgba(255, 255, 255, 0.28));
-        animation: windBlow 1.65s linear infinite;
+        filter: drop-shadow(0 0 7px rgba(255, 255, 255, 0.22));
+        animation: windBlow 3.9s ease-in-out infinite;
       }
       .wind-line-1 {
         width: 26vw;
@@ -370,15 +372,18 @@
       }
       @keyframes windBlow {
         from {
-          transform: translateX(0) skewX(-16deg);
+          transform: translateX(0) skewX(-13deg);
           opacity: 0;
         }
-        12%,
-        82% {
+        14%,
+        80% {
           opacity: 1;
         }
+        50% {
+          transform: translateX(70vw) skewX(-11deg) translateY(2px);
+        }
         to {
-          transform: translateX(145vw) skewX(-16deg);
+          transform: translateX(145vw) skewX(-13deg) translateY(-1px);
           opacity: 0;
         }
       }
@@ -598,17 +603,22 @@
 
       .hero h1 {
         font-size: clamp(2.4rem, 6vw, 3.6rem);
-        color: #fff;
+        color: #f8fbff;
         letter-spacing: 0.03em;
         margin-bottom: 10px;
-        text-shadow: 0 2px 20px rgba(0, 0, 0, 0.3);
+        text-shadow:
+          0 2px 10px rgba(0, 0, 0, 0.42),
+          0 0 26px rgba(0, 0, 0, 0.28);
       }
       .hero .subtitle {
         font-size: 1rem;
-        color: rgba(255, 255, 255, 0.72);
+        color: rgba(248, 251, 255, 0.92);
         font-weight: 400;
         margin-bottom: 30px;
         letter-spacing: 0.04em;
+        text-shadow:
+          0 1px 8px rgba(0, 0, 0, 0.44),
+          0 0 18px rgba(0, 0, 0, 0.24);
       }
 
       .social-links {
@@ -622,9 +632,9 @@
         align-items: center;
         gap: 8px;
         padding: 10px 20px;
-        background: rgba(255, 255, 255, 0.12);
-        border: 1px solid rgba(255, 255, 255, 0.25);
-        color: #fff;
+        background: rgba(10, 24, 38, 0.4);
+        border: 1px solid rgba(255, 255, 255, 0.34);
+        color: #f8fbff;
         text-decoration: none;
         border-radius: 50px;
         font-size: 0.88rem;
@@ -636,7 +646,7 @@
         backdrop-filter: blur(8px);
       }
       .social-links a:hover {
-        background: rgba(255, 255, 255, 0.22);
+        background: rgba(10, 24, 38, 0.54);
         transform: translateY(-2px);
         box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
       }
@@ -657,6 +667,24 @@
       [data-theme="light"] .social-links a:hover {
         background: rgba(255, 255, 255, 0.78);
         box-shadow: 0 8px 22px rgba(20, 50, 74, 0.18);
+      }
+      [data-theme="grey"] .hero h1 {
+        color: #132b3a;
+        text-shadow: 0 2px 18px rgba(255, 255, 255, 0.34);
+      }
+      [data-theme="grey"] .hero .subtitle {
+        color: rgba(19, 43, 58, 0.82);
+        text-shadow: 0 1px 10px rgba(255, 255, 255, 0.28);
+      }
+      [data-theme="grey"] .social-links a {
+        background: rgba(244, 250, 252, 0.64);
+        border-color: rgba(19, 43, 58, 0.22);
+        color: #132b3a;
+        box-shadow: 0 6px 18px rgba(19, 43, 58, 0.12);
+      }
+      [data-theme="grey"] .social-links a:hover {
+        background: rgba(244, 250, 252, 0.8);
+        box-shadow: 0 8px 22px rgba(19, 43, 58, 0.18);
       }
 
       /* Wave */
